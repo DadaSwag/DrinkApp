@@ -1,14 +1,21 @@
-import React, { useState, useEffect } from "react";
-import "@tailwindcss/vite";
+import "./App.css"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Homepage from "./Pages/Homepage";
+import Navbar from "./Components/Navbar";
+import IngredientForm from "./Pages/IngredientForm.js";
+import ProductForm from "./Pages/ProductForm.js";
 
 export default function App() {
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold text-center mt-4">Drinks To Go</h1>
-      <p className="text-center mt-2 text-gray-600">
-        Welcome to Drinks To Go! Your one-stop solution for refreshing beverages on the move.
-      </p>
-    </div>
-  );
+    <Router>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Homepage/>} />
+        <Route path="/ingredient" element={<IngredientForm/>} />
+        <Route path="/products" element={<ProductForm/>} />
+
+      </Routes>
+      </Router>
+);
 }
